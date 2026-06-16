@@ -1,6 +1,6 @@
 # ☕ Cafe Sales End-to-End Data Analysis Project
 
-Bu proje, Kaggle üzerinde yer alan ham bir kafe satış veri kümesinin (Cafe Sales Dataset), **Microsoft SQL Server (MSSQL)** kullanılarak veri temizleme (Data Cleaning) ve manipülasyonu süreçlerinden geçirilmesini ve ardından **Power BI** ile iş zekası raporuna dönüştürülmesini kapsayan uçtan uca (end-to-end) bir veri analitiği projesidir.
+Bu proje, Kaggle üzerinde yer alan yapay bir kafe satış veri kümesinin (Cafe Sales Dataset), **Microsoft SQL Server (MSSQL)** kullanılarak veri temizleme (Data Cleaning) ve manipülasyonu süreçlerinden geçirilmesini ve ardından **Power BI** ile iş zekası raporuna dönüştürülmesini kapsayan uçtan uca (end-to-end) bir veri analitiği projesidir.
 
 ---
 
@@ -65,7 +65,7 @@ Mutfak ve stok yönetimini optimize etmek amacıyla tasarlanmıştır:
 Analist Özeti
 Temizlenen veri seti ve oluşturulan dinamik dashboard'lar üzerinden kafe yönetimi için kritik önem taşıyan şu stratejik bulgular elde edilmiştir:
 * **Finansal Risk Yönetimi & Veri Kalitesi:** SQL aşamasında silinmeyip sisteme kazandırılan eksik veriler (`Not Specified`), toplam şirket cirosunun küçük ama göz ardı edilemeyecek bir kısmını oluşturmaktadır. Bu durum, kasa sistemindeki (POS) veri giriş standartlarının (özellikle ürün detayı girme zorunluluğunun) artırılması gerektiğine işaret etmektedir.
-* **Menü ve Fiyat Stratejisi (Sürüm vs. Kar Marjı):** İki eksenli analize göre `Coffee` ve `Tea` gibi ürünlerin birim fiyatları düşük olmasına rağmen, devasa satış adetleri ile kafenin nakit motoru (Cash Cow) olduğu kanıtlanmıştır. Buna karşın `Salad` ve `Sandwich` hem yüksek fiyat hem de yüksek talep ile en karlı "Yıldız" ürünler olarak öne çıkmaktadır.
+* **Menü ve Fiyat Stratejisi (Sürüm vs. Kar Marjı):** İki eksenli analize göre `Coffee` ve `Tea` gibi ürünlerin birim fiyatları düşük olmasına rağmen, devasa satış adetleri ile kafenin nakit motoru (Cash Cow) olduğu kanıtlanmıştır. Buna karşın `Salad` hem yüksek fiyat hem de yüksek talep ile en karlı "Yıldız" ürünler olarak öne çıkmaktadır.
 * **Lokasyon Bazlı Tüketim Alışkanlıkları:** Paket servis (`Takeaway`) şubesinde hızlı tüketilen sandviç ve kahve kombinasyonları zirvedeyken, kafe içi (`In-store`) oturumlarda çay ve tatlı tüketiminin yoğunlaştığı görülmüştür. Bu bulgu, şube bazlı stok ve vitrin yönetiminin optimize edilmesini (Örn: Paket servis noktalarında sandviç stokunun artırılması) gerekli kılmaktadır.
 * **Ödeme Alışkanlıkları:** Dijital cüzdan ve kredi kartı kullanım oranlarının dağılımı, kafe kasalarındaki temassız ödeme altyapısının her şubede kusursuz çalışması gerektiğini, nakit yönetim maliyetlerinin ise minimuma indirilebileceğini göstermektedir
 
