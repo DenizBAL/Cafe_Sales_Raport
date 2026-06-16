@@ -52,7 +52,7 @@ Kafe yönetiminin genel gidişatı tek bakışta görmesini sağlayan bu sayfada
 * **Ciro Trendi (Zaman Serisi):** Çizgi Grafiği (Line Chart) ile cironun zaman içerisindeki dalgalanmaları ve yoğun dönemleri analize sunulmuştur.
 * **Şube ve Ödeme Dağılımı:** Çubuk ve Donut grafikler yardımıyla şubelerin (In-store, Takeaway) ciro payı ve müşterilerin ödeme alışkanlıkları gösterilmiştir.
 
---![Yönetici_Özeti_Dashboard](assets/yönetici.png)
+--![Yonetici](assets/yonetici.png)
 
 ### 📄 Sayfa 2: Ürün ve Menü Analitiği (Menu Intelligence)
 Mutfak ve stok yönetimini optimize etmek amacıyla tasarlanmıştır:
@@ -60,7 +60,7 @@ Mutfak ve stok yönetimini optimize etmek amacıyla tasarlanmıştır:
 * **Lokasyon Bazlı Ürün Tercihi:** Kümelenmiş sütun grafiği ile hangi şubede (Örn: Gel-al şubesi) hangi ürün kombinasyonlarının daha çok tercih edildiği filtrelenmiştir.
 * **Veri Kalitesi ve Risk İzleme Kartı:** SQL aşamasında kurtarılan ve `'Not Specified'` olarak etiketlenen eksik girilmiş ciroların, toplam şirket cirosunun yüzde kaçını oluşturduğu DAX ölçüleri (`Measure`) yazılarak bir Kalite Kartı altında izlenmeye alınmıştır.
 
---![menü_Dashboard](assets/menü.png)
+--![menu](assets/menu.png)
 
 Analist Özeti
 Temizlenen veri seti ve oluşturulan dinamik dashboard'lar üzerinden kafe yönetimi için kritik önem taşıyan şu stratejik bulgular elde edilmiştir:
