@@ -1,10 +1,3 @@
-Uçtan uca (End-to-End) projenin SQL ve Power BI aşamalarını senin yönetiminde harika bir şekilde tamamladık. Şimdi bu projeyi GitHub'da sergileme ve bir analist gibi sunma vakti!
-
-Aşağıda, yaptığın tüm mantıksal adımları, veri temizleme kurallarını ve Power BI tasarımını içeren, iş verenlerin ve senior analistlerin dikkatini çekecek profesyonel bir README.md dosyası hazırladım.
-
-Bu metni doğrudan kopyalayıp GitHub'daki README.md dosyanın içine yapıştırabilirsin:
-
-Markdown
 # ☕ Cafe Sales End-to-End Data Analysis Project
 
 Bu proje, Kaggle üzerinde yer alan ham bir kafe satış veri kümesinin (Cafe Sales Dataset), **Microsoft SQL Server (MSSQL)** kullanılarak veri temizleme (Data Cleaning) ve manipülasyonu süreçlerinden geçirilmesini ve ardından **Power BI** ile iş zekası raporuna dönüştürülmesini kapsayan uçtan uca (end-to-end) bir veri analitiği projesidir.
@@ -39,7 +32,7 @@ Ham veri seti veritabanına `dirty_cafe_sales` adıyla yüklenmiş, ardından ve
 
 3. **Gelişmiş Finansal İş Kuralları (Ciro Koruma):**
    * Kasaya para girişi olan (`Total_Spent` değeri var olan) ancak hangi ürünün kaç adet satıldığı bilinmeyen karmaşık satırlar silinmemiş; ciro kaybını önlemek adına bu satırlardaki ürün adı `'Unspecified'`, adet `1` ve birim fiyat `Total_Spent` değerine eşitlenerek sisteme kazandırılmıştır.
-   * Hiçbir matematiksel ipucu taşımayan (cirosu ve adeti olmayan) tamamen kayıp satırlar ise `0` ve `'Unspecified'` olarak set edilerek nötrlenmiştir.
+   * Hiçbir matematiksel ipucu taşımayan (cirosu ve adeti olmayan) tamamen kayıp satırlar ise `0` ve `'Not Specified'` olarak set edilerek nötrlenmiştir.
 
 4. **Veri Kalite Kontrolü (Data Validation):**
    * Yapılan işlemlerin ardından tüm tablodaki `NULL` değer oranı kontrol edilmiş ve eksik veri sayısı **0 (Sıfır)** olana kadar doğrulanmıştır.
@@ -59,8 +52,22 @@ Kafe yönetiminin genel gidişatı tek bakışta görmesini sağlayan bu sayfada
 * **Ciro Trendi (Zaman Serisi):** Çizgi Grafiği (Line Chart) ile cironun zaman içerisindeki dalgalanmaları ve yoğun dönemleri analize sunulmuştur.
 * **Şube ve Ödeme Dağılımı:** Çubuk ve Donut grafikler yardımıyla şubelerin (In-store, Takeaway) ciro payı ve müşterilerin ödeme alışkanlıkları gösterilmiştir.
 
+--![Yönetici Özeti Dashboard](assets/yönetici.png)
+
 ### 📄 Sayfa 2: Ürün ve Menü Analitiği (Menu Intelligence)
 Mutfak ve stok yönetimini optimize etmek amacıyla tasarlanmıştır:
 * **İki Eksenli Çizgi ve Kümelenmiş Sütun Grafiği:** Ürünlerin satış adetleri (popülerlik) sütunlarla büyükten küçüğe sıralanırken, üzerlerine çekilen çizgiyle ortalama birim fiyatları çakıştırılmıştır. Bu sayede "Sürümden Kazandıran (Cash Cows)" ürünler ile "Yıldız (Stars)" ürünler net bir şekilde ayrıştırılmıştır.
 * **Lokasyon Bazlı Ürün Tercihi:** Kümelenmiş sütun grafiği ile hangi şubede (Örn: Gel-al şubesi) hangi ürün kombinasyonlarının daha çok tercih edildiği filtrelenmiştir.
-* **Veri Kalitesi ve Risk İzleme Kartı:** SQL aşamasında kurtarılan ve `'Unspecified'` olarak etiketlenen eksik girilmiş ciroların, toplam şirket cirosunun yüzde kaçını oluşturduğu DAX ölçüleri (`Measure`) yazılarak bir Kalite Kartı altında izlenmeye alınmıştır.
+* **Veri Kalitesi ve Risk İzleme Kartı:** SQL aşamasında kurtarılan ve `'Not Specified'` olarak etiketlenen eksik girilmiş ciroların, toplam şirket cirosunun yüzde kaçını oluşturduğu DAX ölçüleri (`Measure`) yazılarak bir Kalite Kartı altında izlenmeye alınmıştır.
+
+--![menüDashboard](assets/menü.png)
+
+Analist Özeti
+Temizlenen veri seti ve oluşturulan dinamik dashboard'lar üzerinden kafe yönetimi için kritik önem taşıyan şu stratejik bulgular elde edilmiştir:
+* **Finansal Risk Yönetimi & Veri Kalitesi:** SQL aşamasında silinmeyip sisteme kazandırılan eksik veriler (`Not Specified`), toplam şirket cirosunun küçük ama göz ardı edilemeyecek bir kısmını oluşturmaktadır. Bu durum, kasa sistemindeki (POS) veri giriş standartlarının (özellikle ürün detayı girme zorunluluğunun) artırılması gerektiğine işaret etmektedir.
+* **Menü ve Fiyat Stratejisi (Sürüm vs. Kar Marjı):** İki eksenli analize göre `Coffee` ve `Tea` gibi ürünlerin birim fiyatları düşük olmasına rağmen, devasa satış adetleri ile kafenin nakit motoru (Cash Cow) olduğu kanıtlanmıştır. Buna karşın `Salad` ve `Sandwich` hem yüksek fiyat hem de yüksek talep ile en karlı "Yıldız" ürünler olarak öne çıkmaktadır.
+* **Lokasyon Bazlı Tüketim Alışkanlıkları:** Paket servis (`Takeaway`) şubesinde hızlı tüketilen sandviç ve kahve kombinasyonları zirvedeyken, kafe içi (`In-store`) oturumlarda çay ve tatlı tüketiminin yoğunlaştığı görülmüştür. Bu bulgu, şube bazlı stok ve vitrin yönetiminin optimize edilmesini (Örn: Paket servis noktalarında sandviç stokunun artırılması) gerekli kılmaktadır.
+* **Ödeme Alışkanlıkları:** Dijital cüzdan ve kredi kartı kullanım oranlarının dağılımı, kafe kasalarındaki temassız ödeme altyapısının her şubede kusursuz çalışması gerektiğini, nakit yönetim maliyetlerinin ise minimuma indirilebileceğini göstermektedir
+
+### İletişim
+Bu proje ile ilgili sorularınız veya önerileriniz için benimle [LinkedIn profilim](https://www.linkedin.com/in/deniz-bal-64838b225) üzerinden iletişime geçebilirsiniz.
